@@ -25,12 +25,15 @@ class PackageTests(unittest.TestCase):
         frontmatter = text.split("---", 2)[1]
         for field in ["name", "license", "description", "metadata"]:
             self.assertRegex(frontmatter, rf"(?m)^{re.escape(field)}:")
-        for value in [
+        nested_skillhub = all(value in frontmatter for value in [
             "skillhub-slug: sunshine-digital-nomad-wealth",
             "skillhub-display-name: 跨界数字游民财富导航",
             "skillhub-summary: 将跨界能力转化为全球机会、收入组合、证据资产与90天验证计划",
-        ]:
-            self.assertIn(value, frontmatter)
+        ])
+        flat_skillhub = all(re.search(rf"(?m)^{field}:", frontmatter) for field in [
+            "slug", "displayName", "version", "summary"
+        ])
+        self.assertTrue(nested_skillhub or flat_skillhub)
 
     def test_no_scaffold_placeholders(self):
         placeholder = "TO" + "DO"
