@@ -11,19 +11,19 @@ from typing import Any
 
 
 AXES = {
-    "expertise_evidence": (0.20, "专业证据"),
-    "portable_delivery": (0.15, "远程可交付性"),
-    "global_demand": (0.15, "全球需求"),
-    "cross_domain_scarcity": (0.15, "跨界稀缺性"),
-    "distribution_network": (0.10, "分发与网络"),
-    "revenue_durability": (0.15, "收入耐久性"),
-    "location_resilience": (0.10, "地点韧性"),
+    "expertise_evidence": (0.20, "专业证据", "Expertise evidence"),
+    "portable_delivery": (0.15, "远程可交付性", "Portable delivery"),
+    "global_demand": (0.15, "全球需求", "Global demand"),
+    "cross_domain_scarcity": (0.15, "跨界稀缺性", "Cross-domain scarcity"),
+    "distribution_network": (0.10, "分发与网络", "Distribution and network"),
+    "revenue_durability": (0.15, "收入耐久性", "Revenue durability"),
+    "location_resilience": (0.10, "地点韧性", "Location resilience"),
 }
 
 RISKS = {
-    "compliance_data": (8.0, "合规与数据风险"),
-    "income_concentration": (7.0, "收入集中风险"),
-    "capacity_burnout": (5.0, "容量与倦怠风险"),
+    "compliance_data": (8.0, "合规与数据风险", "Compliance and data risk"),
+    "income_concentration": (7.0, "收入集中风险", "Income concentration risk"),
+    "capacity_burnout": (5.0, "容量与倦怠风险", "Capacity and burnout risk"),
 }
 
 
@@ -48,6 +48,18 @@ def _stage(score: float) -> str:
     return "打底"
 
 
+def _stage_en(score: float) -> str:
+    if score >= 90:
+        return "Compound"
+    if score >= 75:
+        return "Scale"
+    if score >= 60:
+        return "Prove"
+    if score >= 40:
+        return "Validate"
+    return "Foundation"
+
+
 def score_profile(payload: dict[str, Any]) -> dict[str, Any]:
     axes = payload.get("axes")
     risks = payload.get("risks")
@@ -64,12 +76,12 @@ def score_profile(payload: dict[str, Any]) -> dict[str, Any]:
     risk_points: dict[str, float] = {}
     raw_axes: dict[str, float] = {}
 
-    for key, (weight, _label) in AXES.items():
+    for key, (weight, _label_zh, _label_en) in AXES.items():
         value = _number(axes[key], key)
         raw_axes[key] = value
         axis_points[key] = round((value / 5.0) * weight * 100.0, 2)
 
-    for key, (maximum, _label) in RISKS.items():
+    for key, (maximum, _label_zh, _label_en) in RISKS.items():
         value = _number(risks[key], key)
         risk_points[key] = round((value / 5.0) * maximum, 2)
 
@@ -78,19 +90,26 @@ def score_profile(payload: dict[str, Any]) -> dict[str, Any]:
     final_score = round(max(0.0, min(100.0, base_score - risk_deduction)), 1)
 
     ranked = sorted(raw_axes, key=lambda key: (-raw_axes[key], key))
+    bottleneck_keys = sorted(raw_axes, key=lambda key: (raw_axes[key], key))[:2]
     strengths = [AXES[key][1] for key in ranked[:2]]
-    bottlenecks = [AXES[key][1] for key in sorted(raw_axes, key=lambda key: (raw_axes[key], key))[:2]]
+    strengths_en = [AXES[key][2] for key in ranked[:2]]
+    bottlenecks = [AXES[key][1] for key in bottleneck_keys]
+    bottlenecks_en = [AXES[key][2] for key in bottleneck_keys]
 
     return {
         "score": final_score,
         "stage": _stage(final_score),
+        "stage_en": _stage_en(final_score),
         "base_score": base_score,
         "risk_deduction": risk_deduction,
         "axis_points": axis_points,
         "risk_points": risk_points,
         "strengths": strengths,
+        "strengths_en": strengths_en,
         "bottlenecks": bottlenecks,
+        "bottlenecks_en": bottlenecks_en,
         "notice": "This score compares options and bottlenecks; it does not predict income.",
+        "notice_zh": "本分数仅用于比较选项与发现瓶颈，不预测收入。",
     }
 
 

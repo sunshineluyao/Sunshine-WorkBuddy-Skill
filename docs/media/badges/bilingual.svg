@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="103" height="28" viewBox="0 0 103 28" role="img" aria-label="English and Chinese">
+  <rect width="103" height="28" rx="7" fill="#0b1528"/>
+  <rect x="1" y="1" width="101" height="26" rx="6" fill="none" stroke="#9b7bff"/>
+  <circle cx="15" cy="14" r="6" fill="#9b7bff"/>
+  <text x="12" y="18" fill="#07111f" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="800">A</text>
+  <text x="28" y="18" fill="#f8fbff" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700">EN · 中文</text>
+</svg>

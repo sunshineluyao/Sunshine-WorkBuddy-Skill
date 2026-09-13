@@ -22,6 +22,7 @@ class ScoreProfileTests(unittest.TestCase):
         result = MODULE.score_profile(payload())
         self.assertEqual(result["score"], 100.0)
         self.assertEqual(result["stage"], "复利")
+        self.assertEqual(result["stage_en"], "Compound")
 
     def test_maximum_risks_deduct_20(self):
         result = MODULE.score_profile(payload(risk_value=5))
@@ -32,6 +33,7 @@ class ScoreProfileTests(unittest.TestCase):
         result = MODULE.score_profile(payload(axis_value=0))
         self.assertEqual(result["score"], 0.0)
         self.assertEqual(result["stage"], "打底")
+        self.assertEqual(result["stage_en"], "Foundation")
 
     def test_rejects_out_of_range_values(self):
         data = payload()
