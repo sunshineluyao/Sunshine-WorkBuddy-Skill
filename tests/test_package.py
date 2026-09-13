@@ -5,15 +5,19 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[1]
+SKILL_ROOT = (
+    REPO_ROOT
+    / ".agents"
+    / "skills"
+    / "sunshineluyao-digital-nomad-wealth"
+)
 
 
 class PackageTests(unittest.TestCase):
     def test_required_files_exist(self):
         for relative in [
             "SKILL.md",
-            "README.md",
-            "README.zh-CN.md",
             "LICENSE",
             "PRIVACY.md",
             "SUPPORT.md",
@@ -25,46 +29,59 @@ class PackageTests(unittest.TestCase):
             "references/output-templates.md",
             "references/evidence-and-safety.md",
             "references/research-and-learning.md",
+            "scripts/learning_ledger.py",
+            "examples/learning-event.example.json",
+        ]:
+            self.assertTrue((SKILL_ROOT / relative).is_file(), relative)
+        for relative in [
+            "README.md",
+            "README.zh-CN.md",
+            "LICENSE",
+            "PRIVACY.md",
+            "SUPPORT.md",
+            "CHANGELOG.md",
             "docs/ARCHITECTURE.md",
             "docs/ACCEPTANCE_TESTS.md",
             "docs/SKILLHUB_LISTING.md",
             "docs/media/sunshine-workflow.svg",
-            "scripts/learning_ledger.py",
-            "examples/learning-event.example.json",
         ]:
-            self.assertTrue((ROOT / relative).is_file(), relative)
+            self.assertTrue((REPO_ROOT / relative).is_file(), relative)
+
+    def test_single_canonical_discovery_location(self):
+        self.assertTrue(SKILL_ROOT.is_dir())
+        self.assertFalse((REPO_ROOT / "SKILL.md").exists())
+        skill_files = list(REPO_ROOT.glob("**/SKILL.md"))
+        self.assertEqual(skill_files, [SKILL_ROOT / "SKILL.md"])
 
     def test_skillhub_and_agent_frontmatter(self):
-        text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        text = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
         self.assertTrue(text.startswith("---\n"))
         frontmatter = text.split("---", 2)[1]
         for field in ["name", "license", "description", "metadata"]:
             self.assertRegex(frontmatter, rf"(?m)^{re.escape(field)}:")
-        nested_skillhub = all(re.search(rf"(?m)^  {field}:", frontmatter) for field in [
-            "skillhub-slug", "skillhub-display-name", "skillhub-summary"
-        ])
-        flat_skillhub = all(re.search(rf"(?m)^{field}:", frontmatter) for field in [
-            "slug", "displayName", "version", "summary"
-        ])
-        self.assertTrue(nested_skillhub or flat_skillhub)
+        for unsupported in ["slug", "displayName", "version", "summary"]:
+            self.assertNotRegex(frontmatter, rf"(?m)^{re.escape(unsupported)}:")
         expected_slug = "sunshineluyao-digital-nomad-wealth"
-        nested_match = re.search(r"(?m)^  skillhub-slug:\s*(\S+)", frontmatter)
-        flat_match = re.search(r"(?m)^slug:\s*(\S+)", frontmatter)
-        actual_slug = nested_match.group(1) if nested_match else flat_match.group(1)
-        self.assertEqual(actual_slug, expected_slug)
+        metadata_slug = re.search(r"(?m)^  skillhub-slug:\s*(\S+)", frontmatter)
+        self.assertIsNotNone(metadata_slug)
+        self.assertEqual(metadata_slug.group(1), expected_slug)
+        name_match = re.search(r"(?m)^name:\s*(\S+)", frontmatter)
+        self.assertIsNotNone(name_match)
+        self.assertEqual(name_match.group(1), expected_slug)
+        self.assertEqual(name_match.group(1), SKILL_ROOT.name)
 
     def test_readme_local_links_resolve(self):
         for readme_name in ["README.md", "README.zh-CN.md"]:
-            text = (ROOT / readme_name).read_text(encoding="utf-8")
+            text = (REPO_ROOT / readme_name).read_text(encoding="utf-8")
             links = re.findall(r'(?:href|src)="([^"#][^"]*)"', text)
             markdown_links = re.findall(r"\[[^\]]+\]\(([^)#]+)(?:#[^)]+)?\)", text)
             for target in links + markdown_links:
                 if target.startswith(("http://", "https://", "mailto:")):
                     continue
-                self.assertTrue((ROOT / target).exists(), f"{readme_name}: {target}")
+                self.assertTrue((REPO_ROOT / target).exists(), f"{readme_name}: {target}")
 
     def test_svg_assets_are_github_safe(self):
-        svg_paths = list((ROOT / "docs" / "media").rglob("*.svg"))
+        svg_paths = list((REPO_ROOT / "docs" / "media").rglob("*.svg"))
         self.assertGreaterEqual(len(svg_paths), 6)
         for path in svg_paths:
             tree = ET.parse(path)
@@ -77,7 +94,7 @@ class PackageTests(unittest.TestCase):
                         self.assertFalse(value.startswith(("http:", "https:", "data:")), str(path))
 
     def test_skill_declares_bilingual_research_and_explicit_learning(self):
-        text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        text = (SKILL_ROOT / "SKILL.md").read_text(encoding="utf-8")
         self.assertIn("Language / 语言", text)
         self.assertIn("Live research contract / 实时研究约定", text)
         self.assertIn("Explicit self-learning / 显式自学习", text)
@@ -88,7 +105,7 @@ class PackageTests(unittest.TestCase):
             ("assets/icon-128.png", (128, 128)),
             ("assets/icon-512.png", (512, 512)),
         ]:
-            with (ROOT / relative).open("rb") as stream:
+            with (SKILL_ROOT / relative).open("rb") as stream:
                 self.assertEqual(stream.read(8), b"\x89PNG\r\n\x1a\n")
                 self.assertEqual(stream.read(4), b"\x00\x00\x00\r")
                 self.assertEqual(stream.read(4), b"IHDR")
@@ -96,9 +113,9 @@ class PackageTests(unittest.TestCase):
             self.assertEqual((width, height), expected, relative)
 
     def test_privacy_and_release_material_are_explicit(self):
-        privacy = (ROOT / "PRIVACY.md").read_text(encoding="utf-8")
-        listing = (ROOT / "docs" / "SKILLHUB_LISTING.md").read_text(encoding="utf-8")
-        acceptance = (ROOT / "docs" / "ACCEPTANCE_TESTS.md").read_text(encoding="utf-8")
+        privacy = (SKILL_ROOT / "PRIVACY.md").read_text(encoding="utf-8")
+        listing = (REPO_ROOT / "docs" / "SKILLHUB_LISTING.md").read_text(encoding="utf-8")
+        acceptance = (REPO_ROOT / "docs" / "ACCEPTANCE_TESTS.md").read_text(encoding="utf-8")
         for phrase in ["explicit permission", "does not train", "delete", "明确授权", "不训练", "删除"]:
             self.assertIn(phrase, privacy)
         self.assertIn("sunshineluyao-digital-nomad-wealth", listing)
@@ -106,7 +123,7 @@ class PackageTests(unittest.TestCase):
 
     def test_no_scaffold_placeholders(self):
         placeholder = "TO" + "DO"
-        for path in ROOT.rglob("*"):
+        for path in REPO_ROOT.rglob("*"):
             if path.is_file() and path.suffix in {".md", ".yaml", ".yml", ".py", ".json"}:
                 self.assertNotIn(placeholder, path.read_text(encoding="utf-8"), str(path))
 

@@ -1,6 +1,6 @@
 <h1 align="center">Sunshine · Digital Nomad Wealth Navigator</h1>
 
-<p align="center"><img src="assets/icon-128.png" alt="Sunshine compass, rising sun, and intersecting paths icon" width="112"></p>
+<p align="center"><img src=".agents/skills/sunshineluyao-digital-nomad-wealth/assets/icon-128.png" alt="Sunshine compass, rising sun, and intersecting paths icon" width="112"></p>
 
 <p align="center"><strong>English</strong> | <a href="README.zh-CN.md">简体中文</a></p>
 
@@ -57,7 +57,7 @@ Sunshine is a bilingual WorkBuddy / SkillHub skill for researchers, educators, c
 
 ## Live intelligence and explicit learning
 
-The skill is **search-first for time-sensitive claims**. When tools are available, it refreshes compensation, market demand, platform rules, prices, visas, tax, regulation, living costs, and competitor information in the current session. It records an as-of date, cites sources next to claims, prefers official or primary material, and marks unresolved conflicts instead of guessing. Details live in [the research and learning protocol](references/research-and-learning.md).
+The skill is **search-first for time-sensitive claims**. When tools are available, it refreshes compensation, market demand, platform rules, prices, visas, tax, regulation, living costs, and competitor information in the current session. It records an as-of date, cites sources next to claims, prefers official or primary material, and marks unresolved conflicts instead of guessing. Details live in [the research and learning protocol](.agents/skills/sunshineluyao-digital-nomad-wealth/references/research-and-learning.md).
 
 Its “self-learning” is intentionally transparent: it learns from a user-approved ledger of experiments and outcomes. It does **not** secretly retrain a model, claim permanent memory, or continue searching after the session ends.
 
@@ -105,9 +105,13 @@ The skill replies in the user’s language. Ask for “中英双语 / bilingual�
 
 ### WorkBuddy
 
+**GitHub import:** connect GitHub, select this repository on its default `main` branch, and choose the detected skill at `.agents/skills/sunshineluyao-digital-nomad-wealth`.
+
+**Local import:**
+
 1. Download this repository as a ZIP.
 2. In WorkBuddy, open **Skills → Upload skill**.
-3. Select the package whose root contains `SKILL.md`.
+3. Select the `.agents/skills/sunshineluyao-digital-nomad-wealth` folder whose root contains `SKILL.md`.
 
 Review the files before import. This release needs no API key and does not upload a private learning ledger by itself.
 
@@ -116,31 +120,25 @@ Current web research uses whichever search capability the host makes available a
 ### Transparent scoring
 
 ```bash
-python3 scripts/score_profile.py examples/sample-input.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/score_profile.py .agents/skills/sunshineluyao-digital-nomad-wealth/examples/sample-input.json
 python3 -m unittest discover -s tests -v
 ```
 
-The score compares options and reveals bottlenecks; it does not predict income. See the [assessment framework](references/assessment-framework.md).
+The score compares options and reveals bottlenecks; it does not predict income. See the [assessment framework](.agents/skills/sunshineluyao-digital-nomad-wealth/references/assessment-framework.md).
 
 ### Optional learning ledger
 
 ```bash
-python3 scripts/learning_ledger.py init learning-ledger.json
-python3 scripts/learning_ledger.py add learning-ledger.json examples/learning-event.example.json
-python3 scripts/learning_ledger.py summary learning-ledger.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py init learning-ledger.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py add learning-ledger.json .agents/skills/sunshineluyao-digital-nomad-wealth/examples/learning-event.example.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py summary learning-ledger.json
 ```
 
 The file is local, inspectable, append-only through the helper, and ignored by Git. Use ranges or pseudonyms; do not put credentials, identity documents, client secrets, or employer-confidential material in it.
 
 ## Publish to SkillHub
 
-`main` keeps generic Agent Skills frontmatter. `skillhub` carries the flattened Tencent CLI fields while keeping the same behavior.
-
-```bash
-git switch skillhub
-skillhub publish . --dry-run
-skillhub publish . --changelog "v1.1: bilingual UX, live intelligence, explicit learning loop"
-```
+The single `main` branch uses standards-compliant Agent Skills frontmatter so GitHub discovery can read it. In SkillHub's GitHub importer, select `sunshineluyao-digital-nomad-wealth`, then confirm the display name, version, summary, license, icon, and release note from [the listing kit](docs/SKILLHUB_LISTING.md) in step 2.
 
 See the [release checklist](docs/RELEASE_CHECKLIST.md) and the official [SkillHub publishing guide](https://skillhub.cloud.tencent.com/tutorials#publish-via-cli).
 
@@ -148,10 +146,10 @@ See the [release checklist](docs/RELEASE_CHECKLIST.md) and the official [SkillHu
 
 | Path | Purpose |
 |---|---|
-| [`SKILL.md`](SKILL.md) | Skill routing, research rules, safety, and bilingual behavior |
-| [`references/research-and-learning.md`](references/research-and-learning.md) | Freshness, competitor search, source scoring, and learning protocol |
-| [`scripts/score_profile.py`](scripts/score_profile.py) | Transparent seven-axis profile score |
-| [`scripts/learning_ledger.py`](scripts/learning_ledger.py) | Local, consent-based experiment ledger |
+| [`.agents/skills/sunshineluyao-digital-nomad-wealth/SKILL.md`](.agents/skills/sunshineluyao-digital-nomad-wealth/SKILL.md) | Discoverable skill entrypoint, routing, research rules, and safety |
+| [`references/research-and-learning.md`](.agents/skills/sunshineluyao-digital-nomad-wealth/references/research-and-learning.md) | Freshness, competitor search, source scoring, and learning protocol |
+| [`scripts/score_profile.py`](.agents/skills/sunshineluyao-digital-nomad-wealth/scripts/score_profile.py) | Transparent seven-axis profile score |
+| [`scripts/learning_ledger.py`](.agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py) | Local, consent-based experiment ledger |
 | [`docs/USER_RESEARCH.md`](docs/USER_RESEARCH.md) | WorkBuddy demand and competition scan |
 | [`docs/MONETIZATION.md`](docs/MONETIZATION.md) | Free-to-paid hypotheses and validation plan |
 | [`docs/SKILLHUB_LISTING.md`](docs/SKILLHUB_LISTING.md) | Paste-ready bilingual marketplace copy and prompts |

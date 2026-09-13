@@ -1,8 +1,8 @@
 # SkillHub listing kit / SkillHub 上架资料
 
-This page is the copy source for the first marketplace submission. Publish from the `skillhub` branch so the required Tencent fields remain at the top level.
+This page is the copy source for the GitHub import confirmation step. The single `main` branch stores a standards-compliant, discoverable package at `.agents/skills/sunshineluyao-digital-nomad-wealth`. Confirm the marketplace fields below in step 2.
 
-本页是首次提交商城时的文案来源。请从 `skillhub` 分支发布，以保留腾讯 CLI 需要的顶层字段。
+本页是 GitHub 导入第二步确认信息时的文案来源。唯一的 `main` 分支将符合标准、可自动发现的技能包放在 `.agents/skills/sunshineluyao-digital-nomad-wealth`；请在第二步确认下列商城字段。
 
 ## Core fields / 核心字段
 
@@ -14,11 +14,12 @@ This page is the copy source for the first marketplace submission. Publish from 
 | summary | 用中英双语实时研究，把专业×兴趣×作品转化为全球领导力定位、三层机会组合与90天验证实验。 |
 | license | `MIT` |
 | icon | `assets/icon-512.png` |
-| source branch | `skillhub` |
+| source branch | `main` |
+| skill path | `.agents/skills/sunshineluyao-digital-nomad-wealth` |
 
-Slug is intended to be permanent after the first publication. A successful CLI dry run is the final collision check.
+Slug is intended to be permanent after the first publication. GitHub discovery derives it from the skill `name`, so confirm the exact value before publishing.
 
-slug 在首次发布后应视为永久标识；CLI dry run 成功才是最终重名检查。
+slug 在首次发布后应视为永久标识；GitHub 自动发现会根据 Skill 的 `name` 推导它，因此发布前需确认值完全一致。
 
 ## Long description / 详细介绍
 

@@ -3,7 +3,14 @@ import unittest
 from pathlib import Path
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / "scripts" / "score_profile.py"
+SCRIPT = (
+    Path(__file__).resolve().parents[1]
+    / ".agents"
+    / "skills"
+    / "sunshineluyao-digital-nomad-wealth"
+    / "scripts"
+    / "score_profile.py"
+)
 SPEC = importlib.util.spec_from_file_location("score_profile", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC and SPEC.loader

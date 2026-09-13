@@ -1,6 +1,6 @@
 <h1 align="center">Sunshine · 跨界数字游民财富导航</h1>
 
-<p align="center"><img src="assets/icon-128.png" alt="Sunshine 指南针、朝阳与交叉路径图标" width="112"></p>
+<p align="center"><img src=".agents/skills/sunshineluyao-digital-nomad-wealth/assets/icon-128.png" alt="Sunshine 指南针、朝阳与交叉路径图标" width="112"></p>
 
 <p align="center"><a href="README.md">English</a> | <strong>简体中文</strong></p>
 
@@ -57,7 +57,7 @@ Sunshine 是面向 WorkBuddy / SkillHub 的双语技能，服务于希望跨界�
 
 ## 实时情报与显式学习
 
-对**可能变化的信息，本 Skill 采取先检索、后建议**。工具可用时，它会在当前会话中刷新薪酬、市场需求、平台规则、价格、签证、税务、监管、生活成本和竞争产品信息；每次标明“截至”日期，把引用放在相关结论旁边，优先官方或一手材料，并明确展示尚未解决的冲突。完整规则见[研究与学习协议](references/research-and-learning.md)。
+对**可能变化的信息，本 Skill 采取先检索、后建议**。工具可用时，它会在当前会话中刷新薪酬、市场需求、平台规则、价格、签证、税务、监管、生活成本和竞争产品信息；每次标明“截至”日期，把引用放在相关结论旁边，优先官方或一手材料，并明确展示尚未解决的冲突。完整规则见[研究与学习协议](.agents/skills/sunshineluyao-digital-nomad-wealth/references/research-and-learning.md)。
 
 它的“自学习”是透明且可控的：根据用户批准保存的实验和结果账本调整后续建议。它不会秘密训练模型，不会声称拥有永久记忆，也不会在会话结束后继续搜索。
 
@@ -105,9 +105,13 @@ Skill 默认跟随用户语言输出；说“中英双语 / bilingual”即可�
 
 ### WorkBuddy
 
+**GitHub 导入：**连接 GitHub，在默认 `main` 分支选择本仓库，然后选择系统识别出的 `.agents/skills/sunshineluyao-digital-nomad-wealth`。
+
+**本地导入：**
+
 1. 下载本仓库 ZIP；
 2. 在 WorkBuddy 打开**技能 → 上传技能**；
-3. 导入根目录包含 `SKILL.md` 的技能包。
+3. 选择根目录含 `SKILL.md` 的 `.agents/skills/sunshineluyao-digital-nomad-wealth` 文件夹。
 
 导入前可审查所有文件。本版本不需要 API Key，也不会自行上传私有学习账本。
 
@@ -116,31 +120,25 @@ Skill 默认跟随用户语言输出；说“中英双语 / bilingual”即可�
 ### 透明评分
 
 ```bash
-python3 scripts/score_profile.py examples/sample-input.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/score_profile.py .agents/skills/sunshineluyao-digital-nomad-wealth/examples/sample-input.json
 python3 -m unittest discover -s tests -v
 ```
 
-评分只用于比较选项和发现瓶颈，不预测收入。完整锚点见[评估框架](references/assessment-framework.md)。
+评分只用于比较选项和发现瓶颈，不预测收入。完整锚点见[评估框架](.agents/skills/sunshineluyao-digital-nomad-wealth/references/assessment-framework.md)。
 
 ### 可选学习账本
 
 ```bash
-python3 scripts/learning_ledger.py init learning-ledger.json
-python3 scripts/learning_ledger.py add learning-ledger.json examples/learning-event.example.json
-python3 scripts/learning_ledger.py summary learning-ledger.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py init learning-ledger.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py add learning-ledger.json .agents/skills/sunshineluyao-digital-nomad-wealth/examples/learning-event.example.json
+python3 .agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py summary learning-ledger.json
 ```
 
 该文件保存在本地、可随时查看，辅助脚本只做追加，并且 Git 默认忽略它。请使用区间或化名；不要写入账号凭证、身份证件、客户秘密或雇主保密材料。
 
 ## 发布到 SkillHub
 
-`main` 分支保留通用 Agent Skills 字段；`skillhub` 分支在同一行为之上展开腾讯 CLI 字段。
-
-```bash
-git switch skillhub
-skillhub publish . --dry-run
-skillhub publish . --changelog "v1.1：双语体验、实时情报与显式学习闭环"
-```
+唯一的 `main` 分支使用符合 Agent Skills 标准的 frontmatter，供 GitHub 自动发现。在 SkillHub 的 GitHub 导入页选择 `sunshineluyao-digital-nomad-wealth`，然后在第二步依据[上架资料](docs/SKILLHUB_LISTING.md)确认展示名、版本、摘要、许可证、图标和发布说明。
 
 参见[发布检查表](docs/RELEASE_CHECKLIST.md)和官方 [SkillHub 发布指南](https://skillhub.cloud.tencent.com/tutorials#publish-via-cli)。
 
@@ -148,10 +146,10 @@ skillhub publish . --changelog "v1.1：双语体验、实时情报与显式学�
 
 | 路径 | 作用 |
 |---|---|
-| [`SKILL.md`](SKILL.md) | Skill 路由、研究规则、安全与双语行为 |
-| [`references/research-and-learning.md`](references/research-and-learning.md) | 新鲜度、竞品检索、来源评分与学习协议 |
-| [`scripts/score_profile.py`](scripts/score_profile.py) | 可解释的七维画像评分 |
-| [`scripts/learning_ledger.py`](scripts/learning_ledger.py) | 本地、经同意的实验学习账本 |
+| [`.agents/skills/sunshineluyao-digital-nomad-wealth/SKILL.md`](.agents/skills/sunshineluyao-digital-nomad-wealth/SKILL.md) | 可被自动发现的 Skill 入口、路由、研究与安全规则 |
+| [`references/research-and-learning.md`](.agents/skills/sunshineluyao-digital-nomad-wealth/references/research-and-learning.md) | 新鲜度、竞品检索、来源评分与学习协议 |
+| [`scripts/score_profile.py`](.agents/skills/sunshineluyao-digital-nomad-wealth/scripts/score_profile.py) | 可解释的七维画像评分 |
+| [`scripts/learning_ledger.py`](.agents/skills/sunshineluyao-digital-nomad-wealth/scripts/learning_ledger.py) | 本地、经同意的实验学习账本 |
 | [`docs/USER_RESEARCH.md`](docs/USER_RESEARCH.md) | WorkBuddy 需求与竞争扫描 |
 | [`docs/MONETIZATION.md`](docs/MONETIZATION.md) | 从免费到付费的假设与验证计划 |
 | [`docs/SKILLHUB_LISTING.md`](docs/SKILLHUB_LISTING.md) | 可直接粘贴的双语上架文案与推荐提示词 |

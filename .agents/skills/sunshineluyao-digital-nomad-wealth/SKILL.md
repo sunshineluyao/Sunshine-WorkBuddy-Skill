@@ -1,5 +1,5 @@
 ---
-name: sunshine-digital-nomad-wealth
+name: sunshineluyao-digital-nomad-wealth
 license: MIT
 description: >-
   Build bilingual, evidence-grounded global career and digital-nomad strategies using live research, cross-domain advantage mapping, competitor comparison, and 90-day experiments. Use for portfolio-career, global leadership, remote-income, or interdisciplinary positioning; not for travel itineraries, definitive legal/tax/immigration advice, investment trades, or income guarantees. 用于跨界全球职业、数字游民、全球领导力与多元收入策略。

@@ -2,8 +2,9 @@
 
 ## 已完成
 
-- `main` 分支根目录 `SKILL.md` 使用通用 Agent Skills 字段；
-- `skillhub` 分支在同一内容上展开腾讯 CLI 要求的 `slug`、`displayName`、`version`、`summary` 和 `license`；
+- 仓库只保留唯一的 `main` 分支；
+- 可发现技能包位于 `.agents/skills/sunshineluyao-digital-nomad-wealth`；
+- `SKILL.md` 顶层只使用 Agent Skills 支持的字段；SkillHub 展示信息保存在 `metadata` 和 `docs/SKILLHUB_LISTING.md`；
 - SkillHub `slug` 使用带作者前缀、更不易冲突的 `sunshineluyao-digital-nomad-wealth`；
 - 无 API Key、账号凭证、用户数据或隐藏外发；
 - 评分脚本仅使用 Python 标准库；
@@ -21,25 +22,22 @@
 ## 发布前
 
 1. 在 WorkBuddy 本地上传 ZIP，逐项运行 `docs/ACCEPTANCE_TESTS.md` 的八个场景并记录结果。
-2. 运行：
+2. 运行标准包校验和测试：
 
    ```bash
    python3 -m unittest discover -s tests -v
-   git switch skillhub
-   skillhub publish . --dry-run
+   python3 /path/to/skill-creator/scripts/quick_validate.py .agents/skills/sunshineluyao-digital-nomad-wealth
    ```
 
-3. 检查名称、摘要、触发词、双语输出、PNG、SVG、Mermaid 和免责声明在桌面端及移动端是否完整。
-4. 从 `docs/SKILLHUB_LISTING.md` 复制开发者简介、推荐提示词、权限披露、标签与发布说明。
-5. 完成个人实名认证或企业认证；创建 API Token 时不要提交到 GitHub。
-6. 确认作者 GitHub 主页至少有一个愿意公开的有效联系渠道；SkillHub 详情页上线后把 `SUPPORT.md` 更新为详情页直达链接。
+3. 确保 GitHub 导入器拥有本仓库读取权限；若不支持 Private 仓库，需要先由仓库所有者改为 Public。
+4. 在 GitHub 导入第一页选择 `sunshineluyao-digital-nomad-wealth`，第二步检查名称、摘要、版本、许可证、图标、双语说明和免责声明。
+5. 从 `docs/SKILLHUB_LISTING.md` 复制开发者简介、推荐提示词、权限披露、标签与发布说明。
+6. 完成个人实名认证或企业认证；任何 API Token 都不要提交到 GitHub。
+7. 确认作者 GitHub 主页至少有一个愿意公开的有效联系渠道；SkillHub 详情页上线后把 `SUPPORT.md` 更新为详情页直达链接。
 
 ## 正式发布
 
-```bash
-git switch skillhub
-skillhub publish . --changelog "v1.1：双语体验、实时情报、竞品检索与显式学习闭环"
-```
+通过 SkillHub 的 GitHub 导入页面提交 `main` 分支中自动发现的 Skill，并在最终提交前确认 slug 为 `sunshineluyao-digital-nomad-wealth`。
 
 预期状态为 `pending_review`。审核通过前详情页可能不可见。
 
