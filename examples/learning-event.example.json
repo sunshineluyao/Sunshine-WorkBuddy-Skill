@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-13",
+  "experiment": "Publish a one-page bilingual research audit offer",
+  "hypothesis": "Early-stage global teams will value an evidence audit before a strategy engagement",
+  "expected_signal": "At least 3 qualified replies from 20 consent-respecting introductions",
+  "observed_signal": 1,
+  "evidence": "4 qualified replies and 2 paid discovery calls",
+  "decision": "continue",
+  "lesson": "The audit framing outperformed generic strategy consulting",
+  "tags": [
+    "research-audit",
+    "bilingual",
+    "founder"
+  ]
+}

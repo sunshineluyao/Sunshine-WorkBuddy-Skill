@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-labelledby="title desc">
+  <title id="title">Sunshine digital nomad wealth navigator user journey</title>
+  <desc id="desc">Five connected stages show the user journey from evidence profile to live research, opportunity decision, a reversible experiment, and an explicit learning loop.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset="0.55" stop-color="#101a34"/>
+      <stop offset="1" stop-color="#24153d"/>
+    </linearGradient>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd166"/>
+      <stop offset="0.48" stop-color="#ff8f70"/>
+      <stop offset="1" stop-color="#9b7bff"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#55d6be"/>
+      <stop offset="0.5" stop-color="#8c7cff"/>
+      <stop offset="1" stop-color="#ff8f70"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000814" flood-opacity="0.48"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#8c7cff"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="700" rx="36" fill="url(#bg)"/>
+  <circle cx="131" cy="112" r="56" fill="url(#sun)" opacity="0.97"/>
+  <circle cx="131" cy="112" r="76" fill="none" stroke="#ffd166" stroke-width="2" opacity="0.22"/>
+  <path d="M102 112h58M131 83v58" stroke="#07111f" stroke-width="8" stroke-linecap="round" opacity="0.72"/>
+
+  <text x="230" y="104" fill="#f8fbff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="52" font-weight="750">Turn your intersection into a global edge</text>
+  <text x="232" y="150" fill="#b9c6e4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="27">把跨界能力变成可携带、有证据、能复利的全球优势</text>
+  <text x="1450" y="112" text-anchor="end" fill="#55d6be" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="650">SUNSHINE · v1.1</text>
+
+  <path d="M325 355H365M625 355H665M925 355H965M1225 355H1265" stroke="url(#line)" stroke-width="5" stroke-linecap="round" marker-end="url(#arrow)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="65" y="235" width="260" height="250" rx="28" fill="#101f36" stroke="#55d6be" stroke-width="2"/>
+    <circle cx="112" cy="285" r="24" fill="#55d6be"/>
+    <text x="112" y="293" text-anchor="middle" fill="#07111f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="800">1</text>
+    <text x="100" y="350" fill="#f8fbff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="31" font-weight="720">PROFILE</text>
+    <text x="100" y="387" fill="#55d6be" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="650">跨界画像</text>
+    <text x="100" y="429" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">goals · proof · limits</text>
+    <text x="100" y="456" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">目标 · 证据 · 约束</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="365" y="235" width="260" height="250" rx="28" fill="#151f3c" stroke="#6aa9ff" stroke-width="2"/>
+    <circle cx="412" cy="285" r="24" fill="#6aa9ff"/>
+    <text x="412" y="293" text-anchor="middle" fill="#07111f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="800">2</text>
+    <text x="400" y="350" fill="#f8fbff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="31" font-weight="720">SEARCH</text>
+    <text x="400" y="387" fill="#6aa9ff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="650">实时检索</text>
+    <text x="400" y="429" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">current · bilingual · cited</text>
+    <text x="400" y="456" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">当下 · 双语 · 可引用</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="665" y="235" width="260" height="250" rx="28" fill="#1b1d40" stroke="#9b7bff" stroke-width="2"/>
+    <circle cx="712" cy="285" r="24" fill="#9b7bff"/>
+    <text x="712" y="293" text-anchor="middle" fill="#07111f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="800">3</text>
+    <text x="700" y="350" fill="#f8fbff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="31" font-weight="720">DECIDE</text>
+    <text x="700" y="387" fill="#b59fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="650">机会组合</text>
+    <text x="700" y="429" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">cash · asset · option</text>
+    <text x="700" y="456" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">现金 · 资产 · 选择权</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="965" y="235" width="260" height="250" rx="28" fill="#241c3d" stroke="#ff8f70" stroke-width="2"/>
+    <circle cx="1012" cy="285" r="24" fill="#ff8f70"/>
+    <text x="1012" y="293" text-anchor="middle" fill="#07111f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="800">4</text>
+    <text x="1000" y="350" fill="#f8fbff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="31" font-weight="720">TEST</text>
+    <text x="1000" y="387" fill="#ff9f85" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="650">90天实验</text>
+    <text x="1000" y="429" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">continue · adjust · stop</text>
+    <text x="1000" y="456" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">继续 · 调整 · 停止</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1265" y="235" width="270" height="250" rx="28" fill="#2a1c36" stroke="#ffd166" stroke-width="2"/>
+    <circle cx="1312" cy="285" r="24" fill="#ffd166"/>
+    <text x="1312" y="293" text-anchor="middle" fill="#07111f" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="23" font-weight="800">5</text>
+    <text x="1300" y="350" fill="#f8fbff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="31" font-weight="720">LEARN</text>
+    <text x="1300" y="387" fill="#ffd166" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="25" font-weight="650">显式学习</text>
+    <text x="1300" y="429" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">outcomes · ledger · next</text>
+    <text x="1300" y="456" fill="#aebbd6" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19">结果 · 账本 · 下一步</text>
+  </g>
+
+  <path d="M1400 516C1400 625 210 625 195 516" fill="none" stroke="#ffd166" stroke-width="3" stroke-dasharray="10 10" opacity="0.78" marker-end="url(#arrow)"/>
+  <rect x="588" y="568" width="424" height="56" rx="28" fill="#0b1528" stroke="#425174"/>
+  <text x="800" y="593" text-anchor="middle" fill="#f8fbff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="19" font-weight="650">MEASURED FEEDBACK, NOT HIDDEN TRAINING</text>
+  <text x="800" y="616" text-anchor="middle" fill="#b9c6e4" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17">真实反馈，不是隐形训练</text>
+  <text x="80" y="665" fill="#7f8eae" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17">Evidence remains visible · assumptions stay falsifiable · the user controls persistence</text>
+  <text x="1520" y="665" text-anchor="end" fill="#7f8eae" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17">证据可见 · 假设可证伪 · 用户控制保存</text>
+</svg>

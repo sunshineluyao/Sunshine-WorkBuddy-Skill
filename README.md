@@ -1,64 +1,157 @@
-# 跨界数字游民财富导航
+<h1 align="center">Sunshine · Digital Nomad Wealth Navigator</h1>
 
-> 成为你所在交叉赛道的“数字游民首富”：不是预测财富，而是找到最值得复利的全球优势。
+<p align="center"><strong>English</strong> | <a href="README.zh-CN.md">简体中文</a></p>
 
-这是一个面向 WorkBuddy / SkillHub 及兼容 Agent Skills 客户端的中文技能。它帮助知识工作者把专业、兴趣、作品、网络与地点自由组合成三类可验证机会：近期现金引擎、可重复出售的证据资产、长期选择权。
+<p align="center"><strong>Turn an unusual mix of skills into a portable, evidence-backed global edge.</strong><br>
+Live market intelligence · Opportunity portfolio · 90-day experiments · Explicit learning</p>
 
-## 它解决什么问题
+<p align="center">
+  <a href="docs/media/sunshine-workflow.svg"><img src="docs/media/sunshine-workflow.svg" alt="Sunshine user journey: map an interdisciplinary profile, search current global signals, compare opportunities, run a reversible experiment, and learn from measured outcomes." width="1600"></a>
+</p>
 
-普通职业规划往往只回答“适合什么岗位”，数字游民攻略往往只回答“去哪里”。本技能把两者之间缺失的决策层补上：
+<p align="center"><em>Profile → search → decide → test → learn → compound.</em><br>
+<a href="docs/media/sunshine-workflow.svg">Full-size workflow</a> · <a href="#software-architecture">Architecture</a></p>
 
-| 输入 | 决策 | 输出 |
+<p align="center">
+  <a href="#quick-start"><img src="docs/media/badges/workbuddy.svg" alt="WorkBuddy ready"></a>
+  <a href="#live-intelligence-and-explicit-learning"><img src="docs/media/badges/live-research.svg" alt="Live research"></a>
+  <a href="README.zh-CN.md"><img src="docs/media/badges/bilingual.svg" alt="English and Chinese"></a>
+  <a href=".github/workflows/validate.yml"><img src="docs/media/badges/tests.svg" alt="Automated tests"></a>
+  <a href="LICENSE"><img src="docs/media/badges/license.svg" alt="MIT license"></a>
+</p>
+
+<p align="center">
+  <a href="#try-it">✨ Try it</a> ·
+  <a href="#user-experience">🧭 User journey</a> ·
+  <a href="#software-architecture">🧩 Architecture</a> ·
+  <a href="#quick-start">🚀 Install</a> ·
+  <a href="docs/USER_RESEARCH.md">📊 Research</a>
+</p>
+
+Sunshine is a bilingual WorkBuddy / SkillHub skill for researchers, educators, creators, consultants, product builders, freelancers, and other knowledge workers exploring a cross-border career or business. It does more than suggest jobs or cities: it turns expertise, interests, proof, networks, and constraints into three testable options—a near-term cash engine, a reusable evidence asset, and a long-term option.
+
+“Wealth” means a scarce, portable, verifiable, compounding advantage in a chosen intersection. It is a product metaphor, never an income promise.
+
+## Why it is different
+
+| Typical tool | Usually answers | Sunshine adds |
 |---|---|---|
-| 专业、兴趣、作品、网络与约束 | 跨界稀缺性、全球可携带性、买方价值与风险 | 一句话定位、机会组合、90天实验与证据资产清单 |
+| Career quiz | “Which role fits me?” | Buyer value, proof, portability, and a reversible test |
+| Digital-nomad guide | “Where should I go?” | A resilient work and income design before relocation |
+| Generic web search | “What information exists?” | Bilingual query expansion, source grading, contradiction checks, and an as-of date |
+| One-off coaching | “What should I do now?” | An explicit learning ledger that improves the next recommendation from observed outcomes |
 
-适合科研人员、教育者、创作者、顾问、产品经理、自由职业者和准备跨界/出海的高技能职场人。不适合纯旅游行程、移民或税务结论、投资交易和任何“保证赚钱”的请求。
+## User experience
 
-## 试着这样问
+| Moment | User action | What the skill does | Visible output |
+|---|---|---|---|
+| 1 · Map | Share goals, evidence, interests, and constraints | Separates facts, statements, inferences, assumptions, and unknowns | Compound-advantage profile |
+| 2 · Search | Ask for current opportunities or comparisons | Searches in the user’s language and English, prioritizes primary sources, and checks dates | Cited intelligence snapshot |
+| 3 · Decide | Compare paths, buyers, countries, or business models | Scores options by evidence speed, reversibility, portability, and risk | Three-layer opportunity portfolio |
+| 4 · Test | Pick one lighthouse experiment | Sets one observable milestone for each 30-day phase | 90-day plan with continue / adjust / stop gates |
+| 5 · Learn | Return with outcomes and feedback | Appends an auditable event—with permission—and updates only supported hypotheses | Change log and next best experiment |
 
-- “我做经济学研究，也会数据可视化和AI工具，怎样形成可远程交付的全球业务？”
-- “比较学术研究、独立咨询和知识产品三条路线，给我一个90天低成本验证计划。”
-- “用我的简历和作品集找出最稀缺的两个交叉优势，不要泛泛建议。”
-- “我想边旅行边工作，但不想只靠一个雇主，帮我设计收入组合和风险边界。”
-- “把本季度的新客户、作品和反馈加入画像，判断该继续、调整还是停止。”
+## Live intelligence and explicit learning
 
-## 使用
+The skill is **search-first for time-sensitive claims**. When tools are available, it refreshes compensation, market demand, platform rules, prices, visas, tax, regulation, living costs, and competitor information in the current session. It records an as-of date, cites sources next to claims, prefers official or primary material, and marks unresolved conflicts instead of guessing. Details live in [the research and learning protocol](references/research-and-learning.md).
 
-### WorkBuddy 本地试用
+Its “self-learning” is intentionally transparent: it learns from a user-approved ledger of experiments and outcomes. It does **not** secretly retrain a model, claim permanent memory, or continue searching after the session ends.
 
-下载本仓库 ZIP，在 WorkBuddy 的“技能”页面选择“上传技能”，导入包含根目录 `SKILL.md` 的技能包。导入前可审查全部文件；本版本不需要 API Key，也不会自行上传数据。
+```mermaid
+flowchart LR
+    H["Hypothesis"] --> S["Current search"]
+    S --> E["Small experiment"]
+    E --> O["Observed outcome"]
+    O --> L["Explicit ledger"]
+    L --> U["Updated recommendation"]
+    U --> H
+```
 
-### 透明评分
+## Software architecture
+
+```mermaid
+flowchart TD
+    U["User · EN / 中文"] --> R{"Intent and language router"}
+    R --> P["Evidence profile"]
+    R --> Q["Live research planner"]
+    R --> L["Consent-based learning ledger"]
+    W["Official, primary, and independent web sources"] --> Q
+    P --> D["Decision engine"]
+    Q --> D
+    L --> D
+    D --> O["Positioning · portfolio · 90-day experiment"]
+    O --> F["Measured feedback"]
+    F --> L
+    G["Transparent scorer and safety gates"] --> D
+```
+
+The skill instructions route the conversation. The research protocol governs freshness, multilingual queries, source quality, and competitor comparison. The deterministic scorer compares evidence-backed options. The optional local ledger preserves raw feedback; recommendations remain generated and reviewable rather than silently changing code or model weights. See [architecture notes](docs/ARCHITECTURE.md).
+
+## Try it
+
+- “I combine economics, data visualization, and AI tools. Find current global buyer signals and design a remote offer.”
+- “Compare research, independent consulting, and knowledge products. Give me a low-cost 90-day test.”
+- “Use my CV and portfolio to identify two defensible interdisciplinary advantages. Separate evidence from assumptions.”
+- “I want location freedom without depending on one employer. Design a resilient income portfolio and its risk gates.”
+- “Here are this quarter’s customers, artifacts, and results. What did we learn, and what should change next?”
+
+The skill replies in the user’s language. Ask for “中英双语 / bilingual” to receive both versions.
+
+## Quick start
+
+### WorkBuddy
+
+1. Download this repository as a ZIP.
+2. In WorkBuddy, open **Skills → Upload skill**.
+3. Select the package whose root contains `SKILL.md`.
+
+Review the files before import. This release needs no API key and does not upload a private learning ledger by itself.
+
+### Transparent scoring
 
 ```bash
 python3 scripts/score_profile.py examples/sample-input.json
 python3 -m unittest discover -s tests -v
 ```
 
-评分只用于比较和发现瓶颈，不预测未来收入。完整锚点见 [评估框架](references/assessment-framework.md)。
+The score compares options and reveals bottlenecks; it does not predict income. See the [assessment framework](references/assessment-framework.md).
 
-### 发布到 SkillHub
+### Optional learning ledger
 
-本仓库的 `main` 分支保持通用 Agent Skills 兼容；`skillhub` 分支按腾讯 CLI 要求展开发布字段。完成 SkillHub 实名认证与 CLI 登录后：
+```bash
+python3 scripts/learning_ledger.py init learning-ledger.json
+python3 scripts/learning_ledger.py add learning-ledger.json examples/learning-event.example.json
+python3 scripts/learning_ledger.py summary learning-ledger.json
+```
+
+The file is local, inspectable, append-only through the helper, and ignored by Git. Use ranges or pseudonyms; do not put credentials, identity documents, client secrets, or employer-confidential material in it.
+
+## Publish to SkillHub
+
+`main` keeps generic Agent Skills frontmatter. `skillhub` carries the flattened Tencent CLI fields while keeping the same behavior.
 
 ```bash
 git switch skillhub
 skillhub publish . --dry-run
-skillhub publish . --changelog "首次发布"
+skillhub publish . --changelog "v1.1: bilingual UX, live intelligence, explicit learning loop"
 ```
 
-官方发布流程见 [SkillHub 使用指南](https://skillhub.cloud.tencent.com/tutorials#publish-via-cli)。
+See the [release checklist](docs/RELEASE_CHECKLIST.md) and the official [SkillHub publishing guide](https://skillhub.cloud.tencent.com/tutorials#publish-via-cli).
 
-## 产品与市场
+## Project map
 
-- [WorkBuddy 用户需求与竞争扫描](docs/USER_RESEARCH.md)
-- [SkillPay 商业化路线](docs/MONETIZATION.md)
-- [发布检查表](docs/RELEASE_CHECKLIST.md)
-- [示例输出](examples/sample-output.md)
+| Path | Purpose |
+|---|---|
+| [`SKILL.md`](SKILL.md) | Skill routing, research rules, safety, and bilingual behavior |
+| [`references/research-and-learning.md`](references/research-and-learning.md) | Freshness, competitor search, source scoring, and learning protocol |
+| [`scripts/score_profile.py`](scripts/score_profile.py) | Transparent seven-axis profile score |
+| [`scripts/learning_ledger.py`](scripts/learning_ledger.py) | Local, consent-based experiment ledger |
+| [`docs/USER_RESEARCH.md`](docs/USER_RESEARCH.md) | WorkBuddy demand and competition scan |
+| [`docs/MONETIZATION.md`](docs/MONETIZATION.md) | Free-to-paid hypotheses and validation plan |
 
-## 隐私与边界
+## Boundaries
 
-本技能默认最小化收集信息，不需要身份证件、账户凭证、精确住址或雇主机密。涉及签证、税务、法律、生活成本或当前市场数据时，应以对应司法辖区的官方信息和持牌专业意见为准。
+Sunshine designs career and business experiments; it does not provide legal, tax, immigration, medical, or investment-trading advice. It cannot guarantee complete coverage of the web or that every source is correct. High-impact decisions require current official sources and qualified local professionals. It never promises income, clients, visas, admission, funding, or influence.
 
 ## License
 
