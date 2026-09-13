@@ -1,5 +1,7 @@
 <h1 align="center">Sunshine · 跨界数字游民财富导航</h1>
 
+<p align="center"><img src="assets/icon-128.png" alt="Sunshine 指南针、朝阳与交叉路径图标" width="112"></p>
+
 <p align="center"><a href="README.md">English</a> | <strong>简体中文</strong></p>
 
 <p align="center"><strong>把不寻常的能力组合，转化为可携带、有证据、能复利的全球优势。</strong><br>
@@ -25,7 +27,9 @@
   <a href="#用户体验流程">🧭 用户旅程</a> ·
   <a href="#软件架构">🧩 软件架构</a> ·
   <a href="#快速开始">🚀 安装</a> ·
-  <a href="docs/USER_RESEARCH.md">📊 用户调查</a>
+  <a href="docs/USER_RESEARCH.md">📊 用户调查</a> ·
+  <a href="PRIVACY.md">🔐 隐私</a> ·
+  <a href="SUPPORT.md">💬 支持</a>
 </p>
 
 Sunshine 是面向 WorkBuddy / SkillHub 的双语技能，服务于希望跨界、出海或建立全球事业的科研人员、教育者、创作者、顾问、产品人、自由职业者及其他知识工作者。它不只推荐职位或城市，而是把专业、兴趣、作品、网络与约束转成三个可验证选项：近期现金引擎、可重复出售的证据资产、长期选择权。
@@ -107,6 +111,8 @@ Skill 默认跟随用户语言输出；说“中英双语 / bilingual”即可�
 
 导入前可审查所有文件。本版本不需要 API Key，也不会自行上传私有学习账本。
 
+实时研究使用宿主提供的可用检索能力，可能消耗额外 WorkBuddy 积分；Skill 不索取账号凭证。持久化学习为可选功能，只在明确授权后写入本地、可检查的账本。详见[隐私与权限说明](PRIVACY.md)。
+
 ### 透明评分
 
 ```bash
@@ -148,10 +154,17 @@ skillhub publish . --changelog "v1.1：双语体验、实时情报与显式学�
 | [`scripts/learning_ledger.py`](scripts/learning_ledger.py) | 本地、经同意的实验学习账本 |
 | [`docs/USER_RESEARCH.md`](docs/USER_RESEARCH.md) | WorkBuddy 需求与竞争扫描 |
 | [`docs/MONETIZATION.md`](docs/MONETIZATION.md) | 从免费到付费的假设与验证计划 |
+| [`docs/SKILLHUB_LISTING.md`](docs/SKILLHUB_LISTING.md) | 可直接粘贴的双语上架文案与推荐提示词 |
+| [`docs/ACCEPTANCE_TESTS.md`](docs/ACCEPTANCE_TESTS.md) | 八个上架前 WorkBuddy 验收场景 |
+| [`PRIVACY.md`](PRIVACY.md) | 数据流向、权限、保留与删除规则 |
+| [`SUPPORT.md`](SUPPORT.md) | 用户支持与安全问题反馈方式 |
+| [`CHANGELOG.md`](CHANGELOG.md) | 版本化发布记录 |
 
 ## 边界
 
 Sunshine 设计职业与商业实验，不提供法律、税务、移民、医疗或投资交易建议。它不能保证覆盖整个互联网，也不能保证每个来源都正确。重大决定必须核对当下官方信息并咨询当地持牌专业人士。它不承诺收入、客户、签证、录取、融资或影响力结果。
+
+数据处理详见[隐私说明](PRIVACY.md)，使用或安全问题详见[支持说明](SUPPORT.md)。
 
 ## License
 

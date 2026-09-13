@@ -1,17 +1,17 @@
 ---
-slug: sunshine-digital-nomad-wealth
+slug: sunshineluyao-digital-nomad-wealth
 name: sunshine-digital-nomad-wealth
-displayName: "跨界数字游民财富导航 | Global Edge"
-version: 1.1.0
-summary: "双语实时研究，将跨界能力转化为全球机会、90天实验与可审计学习闭环"
+displayName: "跨界数字游民财富导航 · Global Edge"
+version: "1.1.0"
+summary: "用中英双语实时研究，把专业×兴趣×作品转化为全球领导力定位、三层机会组合与90天验证实验。"
 license: MIT
 description: >-
-  Build an evidence-grounded, bilingual cross-border career or business strategy for knowledge workers by combining their expertise, interests, proof, networks, location constraints, and risk preferences with current web research, competitor comparison, an opportunity portfolio, and a 90-day experiment. Use for digital-nomad, interdisciplinary positioning, global leadership, portfolio-career, or diversified-income questions. 帮助知识工作者用实时研究、跨界优势画像和显式学习闭环设计全球职业、数字游民或多元收入路线。Do not use for travel-only itineraries, definitive legal/tax/immigration advice, investment trades, or guaranteed-income requests.
+  Build bilingual, evidence-grounded global career and digital-nomad strategies using live research, cross-domain advantage mapping, competitor comparison, and 90-day experiments. Use for portfolio-career, global leadership, remote-income, or interdisciplinary positioning; not for travel itineraries, definitive legal/tax/immigration advice, investment trades, or income guarantees. 用于跨界全球职业、数字游民、全球领导力与多元收入策略。
 metadata:
   author: Luyao (Sunshine) Zhang
-  version: "1.1.0"
   language: zh-CN,en
 ---
+
 
 # Sunshine Digital Nomad Wealth Navigator / 跨界数字游民财富导航
 
@@ -79,6 +79,7 @@ When a request depends on current facts, “current” means checked during this
 - Change a recommendation only when the new evidence supports the change, and show a concise before/after rationale.
 - Create, edit, upload, or share a ledger only with explicit user permission. Prefer local, pseudonymous, minimal data.
 - Do not learn unsafe preferences, personal secrets, fabricated proof, discriminatory targeting, or ways to evade law or platform rules.
+- Before any persistent write, explain the exact fields and destination, obtain consent, and follow [PRIVACY.md](PRIVACY.md). A user may inspect, export, or delete the ledger at any time.
 
 Read [research-and-learning.md](references/research-and-learning.md) for source grading, competitor search, search stopping rules, ledger schema, and update logic.
 
