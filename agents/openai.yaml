@@ -1,0 +1,5 @@
+interface:
+  display_name: "跨界数字游民财富导航"
+  short_description: "把跨界优势转成全球机会、收入组合、证据资产与90天行动计划"
+  brand_color: "#635BFF"
+  default_prompt: "Use $sunshine-digital-nomad-wealth to map my cross-border compound advantage and design a 90-day validation plan."

@@ -1,0 +1,81 @@
+name: WorkBuddy 用户需求调研
+description: 用3分钟告诉我们你真正需要的跨界数字游民技能；请勿填写敏感信息。
+title: "[用户调研] "
+labels:
+  - user-research
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢参与。我们只研究任务与结果，不需要姓名、联系方式、收入、证件、雇主或客户机密。
+  - type: dropdown
+    id: role
+    attributes:
+      label: 你目前最接近哪类角色？
+      options:
+        - 研究 / 教育
+        - 产品 / 技术 / 数据
+        - 咨询 / 专业服务
+        - 内容创作 / 一人公司
+        - 学生 / 早期职场
+        - 其他
+    validations:
+      required: true
+  - type: checkboxes
+    id: tasks
+    attributes:
+      label: 你最希望 WorkBuddy 帮你完成哪些结果？最多选三项。
+      options:
+        - label: 找到可远程交付的跨界定位
+        - label: 比较职业、项目或国家路径
+        - label: 设计不依赖单一来源的收入组合
+        - label: 建立可展示的全球作品集
+        - label: 找到真实买方并验证需求
+        - label: 制定90天行动与停止条件
+        - label: 核验签证、税务、平台或市场信息
+  - type: textarea
+    id: failure
+    attributes:
+      label: 最近一次“AI看似完成、但你不敢使用”的任务是什么？
+      description: 请删除组织、人名、客户和其他敏感信息。
+    validations:
+      required: true
+  - type: dropdown
+    id: paid_result
+    attributes:
+      label: 哪种结果最可能让你按次付费？
+      options:
+        - 个性化90天路线与停止条件
+        - 三条路径的证据化比较
+        - 全球买方与最小服务设计
+        - 作品集与个人品牌叙事
+        - 新证据加入后的季度复盘
+        - 暂时都不会
+    validations:
+      required: true
+  - type: dropdown
+    id: price
+    attributes:
+      label: 一次深度个性化报告的可接受价格
+      options:
+        - 只接受免费
+        - ¥1–5
+        - ¥6–15
+        - ¥16–49
+        - ¥50以上
+        - 只愿为真人复核付费
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: 90天后出现什么变化，你会认为这个技能值得继续用？
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: 提交确认
+      options:
+        - label: 我没有填写个人敏感信息，并同意将回答用于聚合产品研究。
+          required: true

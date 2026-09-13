@@ -1,0 +1,16 @@
+{
+  "axes": {
+    "expertise_evidence": 4.5,
+    "portable_delivery": 4,
+    "global_demand": 3.5,
+    "cross_domain_scarcity": 4.5,
+    "distribution_network": 2.5,
+    "revenue_durability": 3,
+    "location_resilience": 4
+  },
+  "risks": {
+    "compliance_data": 1,
+    "income_concentration": 3,
+    "capacity_burnout": 2
+  }
+}
