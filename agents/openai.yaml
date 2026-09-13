@@ -1,5 +1,7 @@
 interface:
-  display_name: "Sunshine · 跨界数字游民财富导航"
-  short_description: "双语实时研究，把跨界优势变成可验证全球机会"
-  brand_color: "#635BFF"
+  display_name: "跨界数字游民财富导航 · Global Edge"
+  short_description: "双语实时研究，把跨界优势转化为可验证的全球机会"
+  icon_small: "./assets/icon-128.png"
+  icon_large: "./assets/icon-512.png"
+  brand_color: "#0F766E"
   default_prompt: "Use $sunshine-digital-nomad-wealth to research my current global opportunities and design a bilingual, evidence-backed 90-day experiment."

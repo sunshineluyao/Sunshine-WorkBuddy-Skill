@@ -1,5 +1,7 @@
 <h1 align="center">Sunshine · Digital Nomad Wealth Navigator</h1>
 
+<p align="center"><img src="assets/icon-128.png" alt="Sunshine compass, rising sun, and intersecting paths icon" width="112"></p>
+
 <p align="center"><strong>English</strong> | <a href="README.zh-CN.md">简体中文</a></p>
 
 <p align="center"><strong>Turn an unusual mix of skills into a portable, evidence-backed global edge.</strong><br>
@@ -25,7 +27,9 @@ Live market intelligence · Opportunity portfolio · 90-day experiments · Expli
   <a href="#user-experience">🧭 User journey</a> ·
   <a href="#software-architecture">🧩 Architecture</a> ·
   <a href="#quick-start">🚀 Install</a> ·
-  <a href="docs/USER_RESEARCH.md">📊 Research</a>
+  <a href="docs/USER_RESEARCH.md">📊 Research</a> ·
+  <a href="PRIVACY.md">🔐 Privacy</a> ·
+  <a href="SUPPORT.md">💬 Support</a>
 </p>
 
 Sunshine is a bilingual WorkBuddy / SkillHub skill for researchers, educators, creators, consultants, product builders, freelancers, and other knowledge workers exploring a cross-border career or business. It does more than suggest jobs or cities: it turns expertise, interests, proof, networks, and constraints into three testable options—a near-term cash engine, a reusable evidence asset, and a long-term option.
@@ -107,6 +111,8 @@ The skill replies in the user’s language. Ask for “中英双语 / bilingual�
 
 Review the files before import. This release needs no API key and does not upload a private learning ledger by itself.
 
+Current web research uses whichever search capability the host makes available and can consume additional WorkBuddy credits. The skill never requests credentials. Persistent learning is optional, local, inspectable, and performed only after explicit permission. Read the [privacy and permissions notice](PRIVACY.md).
+
 ### Transparent scoring
 
 ```bash
@@ -148,10 +154,17 @@ See the [release checklist](docs/RELEASE_CHECKLIST.md) and the official [SkillHu
 | [`scripts/learning_ledger.py`](scripts/learning_ledger.py) | Local, consent-based experiment ledger |
 | [`docs/USER_RESEARCH.md`](docs/USER_RESEARCH.md) | WorkBuddy demand and competition scan |
 | [`docs/MONETIZATION.md`](docs/MONETIZATION.md) | Free-to-paid hypotheses and validation plan |
+| [`docs/SKILLHUB_LISTING.md`](docs/SKILLHUB_LISTING.md) | Paste-ready bilingual marketplace copy and prompts |
+| [`docs/ACCEPTANCE_TESTS.md`](docs/ACCEPTANCE_TESTS.md) | Eight pre-release WorkBuddy acceptance cases |
+| [`PRIVACY.md`](PRIVACY.md) | Data flow, permissions, retention, and deletion |
+| [`SUPPORT.md`](SUPPORT.md) | Support and security-reporting routes |
+| [`CHANGELOG.md`](CHANGELOG.md) | Versioned release history |
 
 ## Boundaries
 
 Sunshine designs career and business experiments; it does not provide legal, tax, immigration, medical, or investment-trading advice. It cannot guarantee complete coverage of the web or that every source is correct. High-impact decisions require current official sources and qualified local professionals. It never promises income, clients, visas, admission, funding, or influence.
+
+For data handling, see [Privacy](PRIVACY.md). For questions or security reports, see [Support](SUPPORT.md).
 
 ## License
 
