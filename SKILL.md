@@ -1,5 +1,9 @@
 ---
+slug: sunshine-digital-nomad-wealth
 name: sunshine-digital-nomad-wealth
+displayName: 跨界数字游民财富导航
+version: 1.0.0
+summary: 将跨界能力转化为全球机会、收入组合、证据资产与90天验证计划
 license: MIT
 description: >-
   为希望成为数字游民、跨界转型、发展全球职业或建立多元收入组合的知识工作者，
@@ -9,9 +13,6 @@ metadata:
   author: Luyao (Sunshine) Zhang
   version: "1.0.0"
   language: zh-CN
-  skillhub-slug: sunshine-digital-nomad-wealth
-  skillhub-display-name: 跨界数字游民财富导航
-  skillhub-summary: 将跨界能力转化为全球机会、收入组合、证据资产与90天验证计划
 ---
 
 # 跨界数字游民财富导航
